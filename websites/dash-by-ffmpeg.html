@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dash by FFmpeg</title>
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
+    <script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script>
+</head>
+
+<body>
+    <video id="example-video" width="1024" height="600" class="video-js vjs-default-skin" controls>
+    </video>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const player = videojs('example-video');
+            player.src({ src: 'http://hls.localhost:81/hls/ffmpeg-dash-generated/manifest.mpd', type: 'application/dash+xml' });
+            player.play();
+        });
+    </script>
+</body>
+
+</html>
